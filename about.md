@@ -4,8 +4,8 @@ title: About
 permalink: /about/
 ---
 
-I should write some stuff here.
+<img src='/assets/who-am-i.gif' />
 
-The title, *"the transistance"*, is a play on "trans" and resistance.  But also
-a play on "existence", "insistence", and any other "ence" or "ance" words I
-think would be cool after the fact.
+I'm a trans-girl javascript developer & open source enthusiast.
+
+A recovering OSX user I've recently resettled in [Fedora](https://getfedora.org/) land but you aren't going to pull my iPhone away from me just yet.
