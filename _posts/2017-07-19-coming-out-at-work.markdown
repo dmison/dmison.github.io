@@ -48,7 +48,7 @@ The complete email with some redactions of names etc is below.  If you are tryin
 > You should:
 > 1. Refer to me by my chosen name: Dana (FYI “day na” not “dar na”)
 > 2. Use the appropriate female pronouns to refer to me: she/her/hers
-> 3. Continue to treat me with the same respect and courtesy as any other Red Hatter
+> 3. Continue to treat me with the same respect and courtesy as anyone else
 >
 > And that's it. I couldn't think of a fourth thing.
 >
