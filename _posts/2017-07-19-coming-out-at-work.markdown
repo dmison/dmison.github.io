@@ -81,6 +81,10 @@ The complete email with some redactions of names etc is below.  If you are tryin
 > Thanks,<br/>
 > Dana
 
+<div class='callout' markdown="1">
+Note that the "How to be a Trans Ally" recording is not currently available publicly nor is the "Media that has resonated with me as a transwoman" doc of mine that I refer to in the email.  I might publish a version of that here at some point.
+</div>
+
 I sent the email around 4pm on the Thursday.  Within 15 minutes I started receiving public and private email responses of support.
 
 Everyone has been very nice and supportive.  Anyone with a negative response is likely to keep it to themselves and I do know of a few at least but they are people that I don't have to deal with anyway.
@@ -88,5 +92,3 @@ Everyone has been very nice and supportive.  Anyone with a negative response is 
 Heading into the office on the Monday out as Dana was a little nerve-wracking, but I am so lucky to have my wife in the same office.  We are mostly a jeans & t-shirt kind of office and I'd been slowly feminising my attire anyway so the only immediate changes are different styles of t-shirt, femme cardigans, more obvious make-up, and wearing my hair more femme.  I'll graduate to skirts one day.  Oh and being able to wear flats & just kick them off at my desk is the best thing.
 
 Four weeks later & it just feels perfectly normal now.  I still feel a little anxious sometimes using the women's bathrooms at work but I don't think anyone else cares.  It isn't the hot-button issue here that it is in the US.
-
-[1] Note that the "How to be a Trans Ally" recording is not currently available publicly nor is the "Media that has resonated with me as a transwoman" doc of mine that I refer to in the email.  I might publish a version of that here at some point.
