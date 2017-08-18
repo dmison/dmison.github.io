@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/perturbadactyl
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://transistance.net
+  * I am perturbadactyl (https://keybase.io/perturbadactyl) on keybase.
+  * I have a public key ASBuMvaA83JiODJykSQLtEcbO5_3PgannjdrRM93Nv6iMAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01206e32f680f3726238327291240bb4471b3b9ff73e06a79e376b44cf7736fea2300a",
+      "host": "keybase.io",
+      "kid": "01206e32f680f3726238327291240bb4471b3b9ff73e06a79e376b44cf7736fea2300a",
+      "uid": "0062a54579401abb9759cb590f598f19",
+      "username": "perturbadactyl"
+    },
+    "merkle_root": {
+      "ctime": 1503034346,
+      "hash": "573f5d91aed71f1c765cefde94559865a5f9276d32ecc2e5c5a20dba00e65b7ca01b78bcaa9ebea94c07090e3066c89e21ede490374c153963e00346fdf4921d",
+      "hash_meta": "e71bf3c58e46f388429b6c5abf9d9b02dd8765fe1e4341acd57780d3f7c1c679",
+      "seqno": 1333218
+    },
+    "service": {
+      "hostname": "transistance.net",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.27"
+  },
+  "ctime": 1503034476,
+  "expire_in": 504576000,
+  "prev": "779a96b8f6e1740bd6bf71788252d1535a4ef84c7186a7d9bbc2bcd6e6c03ada",
+  "seqno": 6,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgbjL2gPNyYjgycpEkC7RHGzuf9z4Gp543a0TPdzb+ojAKp3BheWxvYWTFA017ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwNmUzMmY2ODBmMzcyNjIzODMyNzI5MTI0MGJiNDQ3MWIzYjlmZjczZTA2YTc5ZTM3NmI0NGNmNzczNmZlYTIzMDBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwNmUzMmY2ODBmMzcyNjIzODMyNzI5MTI0MGJiNDQ3MWIzYjlmZjczZTA2YTc5ZTM3NmI0NGNmNzczNmZlYTIzMDBhIiwidWlkIjoiMDA2MmE1NDU3OTQwMWFiYjk3NTljYjU5MGY1OThmMTkiLCJ1c2VybmFtZSI6InBlcnR1cmJhZGFjdHlsIn0sIm1lcmtsZV9yb290Ijp7ImN0aW1lIjoxNTAzMDM0MzQ2LCJoYXNoIjoiNTczZjVkOTFhZWQ3MWYxYzc2NWNlZmRlOTQ1NTk4NjVhNWY5Mjc2ZDMyZWNjMmU1YzVhMjBkYmEwMGU2NWI3Y2EwMWI3OGJjYWE5ZWJlYTk0YzA3MDkwZTMwNjZjODllMjFlZGU0OTAzNzRjMTUzOTYzZTAwMzQ2ZmRmNDkyMWQiLCJoYXNoX21ldGEiOiJlNzFiZjNjNThlNDZmMzg4NDI5YjZjNWFiZjlkOWIwMmRkODc2NWZlMWU0MzQxYWNkNTc3ODBkM2Y3YzFjNjc5Iiwic2Vxbm8iOjEzMzMyMTh9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoidHJhbnNpc3RhbmNlLm5ldCIsInByb3RvY29sIjoiaHR0cDoifSwidHlwZSI6IndlYl9zZXJ2aWNlX2JpbmRpbmciLCJ2ZXJzaW9uIjoxfSwiY2xpZW50Ijp7Im5hbWUiOiJrZXliYXNlLmlvIGdvIGNsaWVudCIsInZlcnNpb24iOiIxLjAuMjcifSwiY3RpbWUiOjE1MDMwMzQ0NzYsImV4cGlyZV9pbiI6NTA0NTc2MDAwLCJwcmV2IjoiNzc5YTk2YjhmNmUxNzQwYmQ2YmY3MTc4ODI1MmQxNTM1YTRlZjg0YzcxODZhN2Q5YmJjMmJjZDZlNmMwM2FkYSIsInNlcW5vIjo2LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQCdC7Ql/cB8MWd3nXpOb/G8m6gTbbA6CcdYCCRYvcPL8alMNCm3mFcAghX8KQr9MVB9HEhBS5QrMV5XPG9WoWgCoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAFCcwQD8ZUZG83btaJZTCuGp5TG9Z8KtH6heRiYOUNWaN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/perturbadactyl
+
+==================================================================
