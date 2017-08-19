@@ -2,6 +2,7 @@
 layout: post
 title: "Emotional labour for AI"
 date:  2017-04-18
+redirect_from: "/2017/04/18/emotional-labor-for-ai.html"
 ---
 
 A couple of days ago a realisation suddenly popped into my head.  Both of the engineers who were responsible for KITT in the original 1982 [Knight Rider](http://www.imdb.com/title/tt0083437/) were women: Bonnie Barstow (Patricia McPherson) and April Curtis (Rebecca Holden).  And I thought "wow how progressive" and then I realised that those women were essentially KITT's care givers.  His moms.  While they were responsible for his technical upkeep, they also were responsible for his emotional well-being.

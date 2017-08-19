@@ -2,6 +2,7 @@
 layout: post
 title:  "My Coming Out as Trans at Work"
 date:   2017-07-19
+redirect_from: "/2017/07/19/coming-out-at-work.html"
 ---
 May 25th 2017 was a pretty important and scary day for me.  It was the day that I sent out an email to everyone at my work office announcing that I am a transgender woman.
 
