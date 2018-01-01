@@ -29,7 +29,7 @@ twitter_username: perturbadactyl
 markdown: kramdown
 theme: minima
 
-gems:
+plugins:
   - jekyll-feed
   - jekyll-redirect-from
 
