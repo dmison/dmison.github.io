@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Creating Updating Vagrant Fedora Boxes | The Transistance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I use Ansible to deploy my web apps to Fedora Server, and I use Vagrant on Fedora to do test deploys.   Vagrant is great for this and the fact that Fedora provides a libvirt Vagrant box is fantastic.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Creating Updating Vagrant Fedora Boxes">
+<meta property="og:url" content="http://example.com/blog/2017/08/19/2017-08-19-updating-fedora-vagrant-boxes/index.html">
+<meta property="og:site_name" content="The Transistance">
+<meta property="og:description" content="I use Ansible to deploy my web apps to Fedora Server, and I use Vagrant on Fedora to do test deploys.   Vagrant is great for this and the fact that Fedora provides a libvirt Vagrant box is fantastic.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-19T00:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-18T05:46:52.032Z">
+<meta property="article:author" content="Dana Jadzia Mison">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="The Transistance" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">The Transistance</a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives/">Archives</a>
+        
+          <a class="main-nav-link" href="/about/">about</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2017-08-19-updating-fedora-vagrant-boxes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Creating Updating Vagrant Fedora Boxes
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I use Ansible to deploy my web apps to Fedora Server, and I use Vagrant on Fedora to do test deploys.   Vagrant is great for this and the fact that Fedora provides a libvirt Vagrant box is fantastic.</p>
+<a id="more"></a>
+
+<p>However I’ve run into two issues</p>
+<ol>
+<li>The Fedora Cloud Vagrant image doesn’t have Python 2 or a few of the dependencies<br>that Ansible requires.  They are a part of the regular versions of Fedora, just not<br>the Cloud one.</li>
+<li>I need to install packages that require lots of other packages be updated, or have updated packages in the VM</li>
+</ol>
+<p>This means each test deploy takes ages as <code>dnf install</code> and <code>dnf update</code> runs.</p>
+<p>The obvious solution to this was to install the missing packages and run <code>dnf update</code><br>on a VM and then rebuild that VM as a new box.  However I ran into a number of gotchas<br>trying to do this.  The main ones being:</p>
+<ol>
+<li>You can’t create a Vagrant box without installing additional packages which is undocumented except for <a target="_blank" rel="noopener" href="https://bugzilla.redhat.com/show_bug.cgi?id=1292217">this bug</a> AFAICT.</li>
+<li>Rewriting of the Vagrant SSH keys.  </li>
+<li>Almost all of the material being written about Vagrant assumes you are using Virtual Box and some things don’t quite work the same on libvirt.</li>
+</ol>
+<div class='callout' markdown="1">
+<b>If you have RVM installed & install Vagrant using the Fedora packages</b>, you'll need to make sure that you are using the system Ruby (`rvm use system`) when running Vagrant otherwise you will get all sorts of weirdness.
+</div>
+
+<p>Here is the basic process I followed.  You need at least 50Gig of free space available where ever your libvirt storage pool is located, eg. <code>/var/lib/libvirt/images</code>.</p>
+<h2 id="To-install-amp-configure-Vagrant-with-the-Fedora-Cloud-image"><a href="#To-install-amp-configure-Vagrant-with-the-Fedora-Cloud-image" class="headerlink" title="To install &amp; configure Vagrant with the Fedora Cloud image:"></a>To install &amp; configure Vagrant with the Fedora Cloud image:</h2><ol>
+<li><p>Install Vagrant and the libvirt provider packages</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dnf install vagrant vagrant-libvirt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Set permissions so you don’t have to enter your password when creating/destroying VMs</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gpasswd -a USERNAME libvirt</span><br><span class="line">$ newgrp libvirt</span><br></pre></td></tr></table></figure>
+
+<p> As per <a target="_blank" rel="noopener" href="https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html">https://developer.fedoraproject.org/tools/vagrant/vagrant-libvirt.html</a></p>
+</li>
+<li><p>Download the Fedora Vagrant Box</p>
+<p> The Fedora Cloud images feel a little bit hidden on the website now.  </p>
+<p> Go to  <a target="_blank" rel="noopener" href="https://alt.fedoraproject.org/cloud/">https://alt.fedoraproject.org/cloud/</a> and scroll down until you find <code>&quot;libvirt/KVM image&quot;</code> and download it.</p>
+</li>
+<li><p>Install the Fedora Cloud image</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add Fedora-Cloud-Base-Vagrant-26-1.5.x86_64.vagrant-libvirt.box --name Fedora26</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Creating-an-updated-Vagrant-box"><a href="#Creating-an-updated-Vagrant-box" class="headerlink" title="Creating an updated Vagrant box"></a>Creating an updated Vagrant box</h2><ol>
+<li><p>Install the missing dependency</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dnf install libguestfs-tools-c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create a new directory and the file <code>Vagrantfile</code></p>
+<p> The name of the directory will be used by Vagrant as the name of the VM it creates.  I called mine <code>Fedora26-August</code>.</p>
+<p> You don’t need to use <code>vagrant init</code>, just create <code>Vagrantfile</code> and add the following to it:</p>
+   <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Vagrant.configure(<span class="string">&quot;2&quot;</span>) <span class="keyword">do</span> <span class="params">|config|</span></span><br><span class="line">  config.vm.box = <span class="string">&quot;Fedora26&quot;</span></span><br><span class="line">  config.ssh.insert_key = <span class="literal">false</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>   This is the least amount of configuration Vagrant needs.</p>
+<p>   If you added the Fedora Cloud image with a different name than <code>Fedora26</code> then you’ll want to put that name as the <code>config.vm.box</code> value instead of course.</p>
+<p>   Note the <code>config.ssh.insert_key</code> entry.  Setting this to <code>false</code> stops Vagrant from replacing the default insecure key that it expects to find when it first creates the VM.  You would never deploy a VM into production with this config but it’s ok for development purposes.  It’s also really handy when you are going to be repacking the VM as a new box.</p>
+</li>
+<li><p>Spin your new VM up</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant up</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Login and make your required changes</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p> Then you can do an update and install whatever packages you need.  In my case I install the packages required by Ansible and do a <code>dnf update</code>.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dnf install python2 python2-dnf libselinux-python</span><br><span class="line">$ sudo dnf update</span><br></pre></td></tr></table></figure>
+
+<p> I also remove the DNF cache files to minimise the space taken up.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dnf clean all</span><br></pre></td></tr></table></figure>
+
+<p> There’s probably kernel updates and stuff in there so do a quick reboot.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p> This will log you out of the VM of course, so give it a minute and log back in.</p>
+</li>
+<li><p>‘Zero out’ the disk</p>
+<p> If you package the image now, it’s actually quite big.  This step creates a file that fills out all the remaining disk space and then deletes it.  Once this has been done the image can compress much better.  It’s also the reason why you need so much disk space.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dd <span class="keyword">if</span>=/dev/zero of=/EMPTY bs=1M</span><br><span class="line">$ sudo rm -f /EMPTY</span><br><span class="line">$ sudo sync</span><br></pre></td></tr></table></figure>
+<p> This takes a few minutes to run.</p>
+</li>
+<li><p>Compress the Disk</p>
+<p> Now the disk is ‘zeroed out’ you can compress it.</p>
+<p> Logout of the VM.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant halt</span><br><span class="line">$ sudo qemu-img convert -O qcow2 -c /var/lib/libvirt/images/Fedora26-August_default.img /var/lib/libvirt/images/Fedora26-August_default-shrunk.img -p</span><br><span class="line">$ sudo mv /var/lib/libvirt/images/Fedora26-August_default-shrunk.img /var/lib/libvirt/images/Fedora26-August_default.img</span><br></pre></td></tr></table></figure>
+<p> Now the image should be much smaller.  It will probably be a few hundred megabytes</p>
+</li>
+<li><p>Update image permissions</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chmod a+r /var/lib/libvirt/images/Fedora26-August_default.img</span><br></pre></td></tr></table></figure>
+
+<p> If you aren’t sure of the right path, run the command in step #7 and you will see the path in the error message that you’ll get.</p>
+</li>
+<li><p>Repackage</p>
+<p>Now you can run the actual <code>vagrant package</code> command to create your Vagrant box.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant package --output Fedora26-August.box</span><br></pre></td></tr></table></figure>
+
+<p>You can specify a full path for the <code>--output</code> parameter.  It’s probably a good idea to provide a path to where you will keep your boxes, or at least move it after it’s created.  Remember that by default Vagrant will rsync the directory it’s running in over to <code>/vagrant</code> on the VM so if you start the VM up again with the box still in that directory it will be copying it around.</p>
+</li>
+</ol>
+<p>Now you have an Vagrant box file of Fedora26 with the updates and whatever other packages you needed.  You can use this box just like you did the Fedora Cloud box you downloaded to install &amp; create new VMs based on it with the latest package updates without having to wait.</p>
+<p>I usually start up the VM again at this point and install other packages for specific uses and create a box for that.  For example, one I use frequently has the httpd, nodejs, mongodb packages installed &amp; services enabled and running.</p>
+<p>I should probably look into Docker &amp; containers in the future as an alternative but right now Vagrant is serving my needs.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2017/12/31/2017-12-31-film-games-books/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          My Favs of 2017
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2017/07/19/2017-07-19-coming-out-at-work/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">My Coming Out as Trans at Work</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Dana Jadzia Mison
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives/" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about/" class="mobile-nav-link">about</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
