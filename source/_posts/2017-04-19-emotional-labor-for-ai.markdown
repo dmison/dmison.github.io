@@ -7,12 +7,13 @@ redirect_from: "/2017/04/18/emotional-labor-for-ai.html"
 
 A couple of days ago a realisation suddenly popped into my head.  Both of the engineers who were responsible for KITT in the original 1982 [Knight Rider](http://www.imdb.com/title/tt0083437/) were women: Bonnie Barstow (Patricia McPherson) and April Curtis (Rebecca Holden).  And I thought "wow how progressive" and then I realised that those women were essentially KITT's care givers.  His moms.  While they were responsible for his technical upkeep, they also were responsible for his emotional well-being.
 
+<!-- MORE -->
+
+{% fancybox /assets/posts/emotional-labour-ai/245237_900.jpg  "Bonnie Barstow at work on KITT in Knight Rider"  "float:right; width:320px;"%}
+
 They performed emotional labour for an AI.
 
-<div style="margin:15px; float:right; display:inline-block; width:300px;">
-  <img src="/assets/posts/emotional-labour-ai/245237_900.jpg"  alt="Bonnie Barstow at work on KITT in Knight Rider" max-width="300px"/>
-  <div style="font-size: 12px; color:grey">Bonnie Barstow at work on KITT in Knight Rider</div>
-</div>
+
 
 Science fiction was not really being progressive here.  I think there was the simple realisation that AI would require emotional care and attention.  Having male characters perform this role would have felt weird to mainstream (malestream?) audiences because of society's expectation of these responsibilities being feminine.
 
@@ -20,10 +21,8 @@ I recalled Dr. Susan Calvin from Isaac Asimov's Robot stories (and the Will Smit
 
 I thought about HAL in [2001: A Space Odyssey](http://www.imdb.com/title/tt0062622/).  There are no real female characters in this film at all ... a film in which one of the main characters is an AI that has an emotional break.
 
-<div style="align:center; margin:15px;">
-<img src="/assets/posts/emotional-labour-ai/Chess-2001.jpg" width="90%" alt="Dr. Frank Poole (played by Gary Lockwood) playing chess against HAL in 2001 A Space Odyssey" style="align:center"/>
-<div style="font-size: 12px; color:grey ">Dr. Frank Poole (played by Gary Lockwood) playing chess against HAL in 2001 A Space Odyssey</div>
-</div>
+{% fancybox /assets/posts/emotional-labour-ai/Chess-2001.jpg  "Dr. Frank Poole (played by Gary Lockwood) playing chess against HAL in 2001 A Space Odyssey"  "align:center;" %}
+
 
 In the sequel [2010: The Year We Make Contact](http://www.imdb.com/title/tt0086837/), Dr Chandra is responsible for getting HAL back online and understanding his behaviour.  Although male, his character definitely can be read in a feminine fashion and he is largely treated as an outsider by his more "manly American" colleagues in the film.  Dr Chandra could easily have been played by a woman.
 

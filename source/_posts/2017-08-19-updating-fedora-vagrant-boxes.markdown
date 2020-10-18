@@ -6,6 +6,8 @@ date:  2017-08-19
 
 I use Ansible to deploy my web apps to Fedora Server, and I use Vagrant on Fedora to do test deploys.   Vagrant is great for this and the fact that Fedora provides a libvirt Vagrant box is fantastic.
 
+<!-- MORE -->
+
 However I've run into two issues
 
 1. The Fedora Cloud Vagrant image doesn't have Python 2 or a few of the dependencies

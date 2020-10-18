@@ -6,6 +6,8 @@ redirect_from: "/2017/07/19/coming-out-at-work.html"
 ---
 May 25th 2017 was a pretty important and scary day for me.  It was the day that I sent out an email to everyone at my work office announcing that I am a transgender woman.
 
+<!-- MORE -->
+
 I first came out to my wife (who I met at work in 2009) in October 2015 and I can't even begin to describe how wonderfully supportive she has been. I would be lost without her.  After six months of doctor's appointments & therapist sessions I finally began hormone therapy.  It was at this point that I informed my manager and HR.  
 
 In Australia there are legal protections for transgender people and within the company there has been a ramp up in Diversity & Inclusion initiatives over the past year.  We also have regular compliance training across the whole company covering discrimination & harassment among other topics.  So I felt safe here from a legal & corporate policy point of view.

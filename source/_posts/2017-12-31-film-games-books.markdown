@@ -5,7 +5,7 @@ date:  2017-12-31
 ---
 
 I was going to write up a list of everything I watched, read or played in 2017 and my opinions about them.  But it turned out to be a pretty long list, and so many of them I had such mixed feelings about that it was difficult to write without seeming really negative.
-
+<!-- more -->
 So what I've done instead is compile a list of those items that I really enjoyed.  
 
 I tried to keep the list to 2017 releases.  Those releases from previous years are marked with a *.
