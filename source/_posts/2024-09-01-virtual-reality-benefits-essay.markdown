@@ -15,7 +15,7 @@ date:  2024-09-01
 
 While our modern conception of Virtual Reality (VR) owes much to the imagination of William Gibson in his 1984 debut novel Neuromancer, VR technology as we understand it has been in development since the 1960s.
 
-Used in film mostly as a more visually compelling means of showing a computer being used, the real world possibilities of VR's immersive qualities, the *"consensual hallucination"*, have been studied & shown to be beneficial for a variety of medical treatments both in physical & mental health.
+While VR is mostly used in film as a more visually compelling means of showing a computer being used, the real world possibilities of VR's immersive qualities, the *"consensual hallucination"*, have been studied & shown to be beneficial for a variety of medical treatments both in physical & mental health.
 
 However using VR also has short-term physical side effects for many people and the longterm effects are not yet known.
 
