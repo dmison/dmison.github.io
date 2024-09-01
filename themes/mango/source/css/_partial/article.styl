@@ -36,7 +36,7 @@
 .article-title
   text-decoration: none
   font-size: 2em
-  font-weight: 100
+  // font-weight: 100
   // margin-bottom:0.15rem
   color: color-default
   // line-height: line-height-title
@@ -53,22 +53,26 @@
   font-weight: 300
   p, table
     line-height: line-height
-    margin: line-height 0
+    margin: (line-height/2) 0 (line-height/2)
   h1, h2, h3, h4, h5, h6
-    font-weight: 100
+    font-weight: bold
   h1, h2, h3, h4, h5, h6
     line-height: line-height
     margin: line-height 0
+    margin-top: 3*(line-height)
+  h1
+    border-bottom: 3px solid #FFC324
+    padding-bottom: 1rem
   h2
-    border-left: 3px solid #FFC324
+    // border-bottom: 3px solid #FFC324
     padding-left: 0.5rem
     line-height: 2rem
   h3
-    border-left: 2px solid #FFC324
+    // border-left: 2px solid #FFC324
     padding-left: calc(0.5rem + 1px)
     line-height: 1.2
   h4, h5, h6
-    border-left: 1px solid #FFC324
+    // border-left: 1px solid #FFC324
     padding-left: calc(0.5rem + 2px)
     line-height: 1rem
   a
@@ -77,8 +81,9 @@
     &:hover
       text-decoration: underline
   ul, ol, dl
-    margin-top: line-height
-    margin-bottom: line-height
+    margin-top: (line-height/2)
+    margin-bottom: (line-height/2)
+    margin-left: 2rem
   img, video
     max-width: 100%
     height: auto
@@ -98,14 +103,20 @@
     border-bottom: 1px solid color-border
     padding: 10px 0
   blockquote
-    font-family: font-serif
-    font-size: 1.4em
+    font-family: font-sans
+    font-size: 1.1em
+    font-style: italic
     margin: line-height 20px
-    text-align: center
+    text-align: left
+    border-left: 8px solid color-border
+    padding-left: 10px
+    padding-top: 10px
+    padding-bottom: 5px
     footer
       font-size: font-size
       margin: line-height 0
       font-family: font-sans
+      margin-bottom: 10px
       cite
         &:before
           content: "—"
